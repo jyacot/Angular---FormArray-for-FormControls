@@ -1,4 +1,4 @@
-import { Component, VERSION } from '@angular/core';
+import { Component, OnInit, VERSION } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -12,7 +12,7 @@ import {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   form: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -21,6 +21,11 @@ export class AppComponent {
       listValues: this.fb.array([]),
     });
   }
+
+  ngOnInit() {
+    this.addListValue(); // +1 elemente by default
+  }
+
   get listValues(): FormArray {
     return this.form.get('listValues') as FormArray;
   }
