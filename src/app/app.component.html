@@ -3,12 +3,15 @@
   <input type="text" formControlName="name" />
 
   <div class="list">
-    <button (click)="addListValue()">+</button>
+    <button (click)="addListValueArray()">+</button>
     <div class="listBody" formArrayName="listValues">
-      <div class="element" *ngFor="let _ of listValues.controls; index as i">
+      <div
+        class="element"
+        *ngFor="let _ of listValuesArray.controls; index as i"
+      >
         <label for="">Elemento #{{ i + 1 }}</label>
         <input type="text" [formControlName]="i" />
-        <button (click)="remoteListValue(i)">-</button>
+        <button (click)="remoteListValueArray(i)">-</button>
       </div>
     </div>
   </div>

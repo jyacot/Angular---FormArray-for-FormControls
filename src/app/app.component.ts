@@ -23,18 +23,18 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.addListValue(); // +1 elemente by default
+    this.addListValueArray(); // +1 elemente by default
   }
 
-  get listValues(): FormArray {
+  get listValuesArray(): FormArray {
     return this.form.get('listValues') as FormArray;
   }
 
-  addListValue() {
-    this.listValues.push(new FormControl(null));
+  addListValueArray() {
+    this.listValuesArray.push(new FormControl(null));
   }
 
-  remoteListValue(index) {
-    this.listValues.removeAt(index);
+  remoteListValueArray(index) {
+    this.listValuesArray.removeAt(index);
   }
 }
